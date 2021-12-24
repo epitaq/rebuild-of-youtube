@@ -18,8 +18,8 @@ if (host_url === "www.youtube.com") {
             }
             //動画を追従させる
             try {
-                var movie = document.getElementById('movie_player');
-                movie.elements.classList.add()
+                var movie = document.getElementById('player');
+                movie.elements.classList.add('position: fixed;')
                 console.log(movie);
             } catch (e) {
                 ;
