@@ -18,11 +18,18 @@ if (host_url === "www.youtube.com") {
             }
             //動画を追従させる
             try {
-                var movie = document.getElementById('player');
-                movie.elements.classList.add('position: fixed;')
-                console.log(movie);
+                let primary = document.getElementById("primary-inner");
+                let player = document.getElementById("player");
+                let second = document.getElementById("secondary-inner");
+                primary.style.height = "1400px";
+                primary.style.overflow = "auto";
+                player.style.position = "sticky";
+                player.style.top = "0";
+                player.style.zIndex = "1000";
+                second.style.height = "1400px";
+                second.style.overflow = "auto";
             } catch (e) {
-                ;
+                console.log("e:",e.message);
             }
         }, 1000
 
@@ -36,7 +43,6 @@ if (host_url === "www.youtube.com") {
             } catch (e) {
                 ;
             }
-        }, 1000
+        }, 100
     )
 }
-//XPathResult {resultType: 4, invalidIteratorState: false}

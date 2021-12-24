@@ -1,6 +1,6 @@
 {
     "name": "YouAd Skipper test",
-    "version": "1.0.9",
+    "version": "1.0.13",
     "manifest_version": 2,
     "description": "Sample Chrome Extension",
     "content_scripts": [{
