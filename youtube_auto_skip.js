@@ -1,35 +1,37 @@
 const host_url = location.host;
 
 
+
 if (host_url === "www.youtube.com") {
     setInterval(
         function () {
-            try {
-                const elem1 = document.getElementsByClassName("ytp-ad-overlay-close-container");
-                elem1[0].click();
-            } catch (e) {
-                ;
-            }
-            try {
-                const elem2 = document.getElementsByClassName("ytp-ad-skip-button-container");
-                elem2[0].click();
-            } catch (e) {
-                ;
-            }
-            //動画を追従させる
-            try {
-                let primary = document.getElementById("primary-inner");
-                let player = document.getElementById("player");
-                let second = document.getElementById("secondary-inner");
-                primary.style.height = "1400px";
-                primary.style.overflow = "auto";
-                player.style.position = "sticky";
-                player.style.top = "0";
-                player.style.zIndex = "1000";
-                second.style.height = "1400px";
-                second.style.overflow = "auto";
-            } catch (e) {
-                console.log("e:",e.message);
+            const pathname_url = location.pathname;
+            //console.log(pathname_url);
+            if (pathname_url.match("/watch")) {
+                //console.log("あるよ〜〜〜");
+                //動画を追従させる
+                try {
+                    const winsize = (window.innerHeight+100) + "px";
+                    console.log(winsize);
+                    const primary = document.getElementById("primary-inner");
+                    const player = document.getElementById("player");
+                    const second = document.getElementById("secondary-inner");
+                    const bod = document.getElementsByTagName("body");
+                    const css_bod = bod[0].style.cssText;
+                    const css_player = player.style.cssText
+                    //primary.style.height = winsize;
+                    primary.style.overflowY = "auto";
+                    player.style.cssText = css_player + "position: sticky !important;";
+                    player.style.top = "0";
+                    player.style.zIndex = "1000";
+                    second.style.height = winsize;
+                    second.style.overflowY = "auto";
+                    bod[0].style.cssText = css_bod + "overflow-y: hidden !important;";
+                } catch (e) {
+                    console.log("e:",e.message);
+                }
+            } else {
+                //console.log("ないよ〜〜〜");
             }
         }, 1000
 
