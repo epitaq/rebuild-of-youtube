@@ -10,23 +10,23 @@ if (host_url === "www.youtube.com") {
                 //動画を追従させる
                 try {
                     const winsize = (window.innerHeight) + "px";
-                    console.log(winsize);
                     const primary = document.getElementById("primary-inner");
                     const player = document.getElementById("player");
                     const second = document.getElementById("secondary-inner");
                     const bod = document.getElementsByTagName("body");
-                    //const css_bod = bod[0].style.cssText;
-                    //const css_player = player.style.cssText
                     primary.style.height = winsize;
                     primary.style.overflowY = "auto";
-                    //player.style.cssText = css_player + "position: sticky !important;";
                     player.style.position = "sticky";
                     player.style.top = "0";
                     player.style.zIndex = "1000";
                     second.style.height = winsize;
                     second.style.overflowY = "auto";
-                    //bod[0].style.cssText = css_bod + "overflow-y: hidden !important;";
+                    //secondを動かさなければいい？
                     bod[0].style.overflowY = "hidden";
+                    // スクロール要素の高さ
+                    var scrollHeight = primary.scrollHeight;
+                    console.log("scroll:", scrollHeight)
+                    primary.scrollTop = scrollHeight+100;
                 } catch (e) {
                     console.log("e:",e.message);
                 }
