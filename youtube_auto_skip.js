@@ -21,12 +21,7 @@ if (host_url === "www.youtube.com") {
                     player.style.zIndex = "1000";
                     second.style.height = winsize;
                     second.style.overflowY = "auto";
-                    //secondを動かさなければいい？
-                    bod[0].style.overflowY = "hidden";
-                    // スクロール要素の高さ
-                    var scrollHeight = primary.scrollHeight;
-                    console.log("scroll:", scrollHeight)
-                    primary.scrollTop = scrollHeight+100;
+                    //bod[0].style.overflowY = "hidden";
                 } catch (e) {
                     console.log("e:",e.message);
                 }
