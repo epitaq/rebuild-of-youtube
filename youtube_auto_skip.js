@@ -4,7 +4,6 @@ if (host_url === "www.youtube.com") {
     setInterval(
         function () {
             let q = location.search;
-            console.log('q:', q);
             let pathname_url = location.pathname;
             if (pathname_url.match("/watch")) {
                 if (watch_id == q) {
@@ -32,7 +31,11 @@ if (host_url === "www.youtube.com") {
                         bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
                         // コメントを読み込み もっと見るをれんだ
                         document.getElementById('more').click()
-                        document.getElementById('less').click()
+                        let scrollHeight = primary.scrollHeight;
+                        console.log(scrollHeight)
+                        window.scroll(0,scrollHeight)
+                        //document.getElementById('less').click()
+                        window.scroll(0,0)
                     } catch (e) {
                         console.log("e:",e.message);
                     }
