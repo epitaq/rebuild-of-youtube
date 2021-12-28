@@ -19,6 +19,7 @@ if (host_url === "www.youtube.com") {
                         let player = document.getElementById("player");
                         let second = document.getElementById("secondary-inner");
                         let bod = document.getElementsByTagName("body");
+                        let css_bod = bod[0].style.cssText;
                         primary.style.height = winsize;
                         primary.style.overflowY = "auto";
                         player.style.position = "sticky";
@@ -26,7 +27,8 @@ if (host_url === "www.youtube.com") {
                         player.style.zIndex = "1000";
                         second.style.height = winsize;
                         second.style.overflowY = "auto";
-                        bod[0].style.overflowY = "hidden";
+                        //!important付けないとうまくいかない
+                        bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
                     } catch (e) {
                         console.log("e:",e.message);
                     }
