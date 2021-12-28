@@ -8,12 +8,13 @@ if (host_url === "www.youtube.com") {
             let pathname_url = location.pathname;
             if (pathname_url.match("/watch")) {
                 if (watch_id == q) {
-                    console.log('if', q);
+                    //console.log('if', q);
                 } else {
                     console.log('else', q);
                     watch_id = q;
                     //動画を追従させる
                     try {
+                        // コメント、横の動画を分離＆全体のスクロール禁止
                         let winsize = (window.innerHeight-56) + "px";
                         let primary = document.getElementById("primary-inner");
                         let player = document.getElementById("player");
@@ -29,6 +30,9 @@ if (host_url === "www.youtube.com") {
                         second.style.overflowY = "auto";
                         //!important付けないとうまくいかない
                         bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
+                        // コメントを読み込み もっと見るをれんだ
+                        document.getElementById('more').click()
+                        document.getElementById('less').click()
                     } catch (e) {
                         console.log("e:",e.message);
                     }
