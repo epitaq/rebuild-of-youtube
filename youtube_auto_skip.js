@@ -27,15 +27,12 @@ if (host_url === "www.youtube.com") {
                         player.style.zIndex = "1000";
                         second.style.height = winsize;
                         second.style.overflowY = "auto";
-                        //!important付けないとうまくいかない
-                        bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
-                        // コメントを読み込み もっと見るをれんだ
-                        document.getElementById('more').click()
-                        let scrollHeight = primary.scrollHeight;
-                        console.log(scrollHeight)
-                        window.scroll(0,scrollHeight)
-                        //document.getElementById('less').click()
-                        window.scroll(0,0)
+                        //!important付けないとうまくいかない コメント読み込みの邪魔だから消した
+                        //bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
+                        // 上を動かせるようにする
+                        let container = document.getElementById('masthead-container');
+                        let css_container = container.style.cssText;
+                        container.style.cssText = css_container + 'position: static !important';
                     } catch (e) {
                         console.log("e:",e.message);
                     }
