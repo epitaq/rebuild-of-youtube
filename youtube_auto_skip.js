@@ -13,21 +13,22 @@ if (host_url === "www.youtube.com") {
                     watch_id = q;
                     //動画を追従させる
                     try {
-                        // コメント、横の動画を分離＆全体のスクロール禁止
+                        // コメント、横の動画を分離
                         let winsize = (window.innerHeight-56) + "px";
                         let primary = document.getElementById("primary-inner");
                         let player = document.getElementById("player");
                         let second = document.getElementById("secondary-inner");
                         let bod = document.getElementsByTagName("body");
-                        let css_bod = bod[0].style.cssText;
                         primary.style.height = winsize;
                         primary.style.overflowY = "auto";
                         player.style.position = "sticky";
                         player.style.top = "0";
                         player.style.zIndex = "1000";
+                        player.style.background = '#000000'
                         second.style.height = winsize;
                         second.style.overflowY = "auto";
                         //!important付けないとうまくいかない コメント読み込みの邪魔だから消した
+                        //let css_bod = bod[0].style.cssText;
                         //bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
                         // 上を動かせるようにする
                         let container = document.getElementById('masthead-container');
