@@ -6,7 +6,7 @@
     "content_scripts": [
         {
         "matches": [ "http://*/*", "https://*/*" ],
-        "js": ["youtube_auto_skip.js"],
+        "js": ["main.js"],
         "css": ["scroll.css"]
         }
     ],
