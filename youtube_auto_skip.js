@@ -18,7 +18,6 @@ if (host_url === "www.youtube.com") {
                         let primary = document.getElementById("primary-inner");
                         let player = document.getElementById("player");
                         let second = document.getElementById("secondary-inner");
-                        let bod = document.getElementsByTagName("body");
                         primary.style.height = winsize;
                         primary.style.overflowY = "auto";
                         player.style.position = "sticky";
@@ -28,6 +27,7 @@ if (host_url === "www.youtube.com") {
                         second.style.height = winsize;
                         second.style.overflowY = "auto";
                         //!important付けないとうまくいかない コメント読み込みの邪魔だから消した
+                        //let bod = document.getElementsByTagName("body");
                         //let css_bod = bod[0].style.cssText;
                         //bod[0].style.cssText = css_bod + "overflow-y: hidden !important;"
                         // 上を動かせるようにする
