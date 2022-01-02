@@ -1,4 +1,4 @@
-body::-webkit-scrollbar {
+.scroll-bar::-webkit-scrollbar {
     display: none;
 }
 

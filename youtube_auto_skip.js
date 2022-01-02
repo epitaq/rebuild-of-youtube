@@ -9,6 +9,7 @@ if (host_url === "www.youtube.com") {
                 if (watch_id == q) {
                     //console.log('if', q);
                 } else {
+                    //一度だけ実行
                     console.log('else', q);
                     watch_id = q;
                     //動画を追従させる
@@ -34,6 +35,9 @@ if (host_url === "www.youtube.com") {
                         let container = document.getElementById('masthead-container');
                         let css_container = container.style.cssText;
                         container.style.cssText = css_container + 'position: static !important';
+                        //スクロールバーの非表示
+                        primary.classList.add('scroll-bar');
+                        second.classList.add('scroll-bar');
                     } catch (e) {
                         console.log("e:",e.message);
                     }
