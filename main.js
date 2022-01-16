@@ -47,15 +47,16 @@ if (host_url === "www.youtube.com") {
             }
         }, 1000
     )
-    setInterval(
-        function () {
-            //マウスオーバーを停止したい
-            try {
-                var elm = document.getElementById("mouseover-overlay");
-                elm.remove();
-            } catch (e) {
-                ;
-            }
-        }, 100
-    )
+    //仕様変更で消えた？
+    // setInterval(
+    //     function () {
+    //         //マウスオーバーを停止したい
+    //         try {
+    //             var elm = document.getElementById("mouseover-overlay");
+    //             elm.remove();
+    //         } catch (e) {
+    //             ;
+    //         }
+    //     }, 100
+    // )
 }
