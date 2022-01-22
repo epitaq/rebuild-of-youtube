@@ -38,6 +38,9 @@ if (host_url === "www.youtube.com") {
                         //スクロールバーの非表示
                         primary.classList.add('scroll-bar');
                         second.classList.add('scroll-bar');
+                        //上の謎のマージンを削除
+                        let ue_margin = document.getElementById('page-manager')
+                        ue_margin.style.margin = 0;
                     } catch (e) {
                         console.log("e:",e.message);
                     }
