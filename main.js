@@ -6,7 +6,7 @@ if (host_url === "www.youtube.com") {
             let q = location.search;
             let pathname_url = location.pathname;
             if (pathname_url.match("/watch")) {
-                console.log('watch')
+                //console.log('watch')
                 if (watch_id == q) {
                     //console.log('if', q);
                 } else {
@@ -51,7 +51,7 @@ if (host_url === "www.youtube.com") {
             }
         }, 1000
     )
-    //仕様変更で消えた？
+    //仕様変更で消えた？設定によっては出るっぽい
     setInterval(
         function () {
             //マウスオーバーを停止したい
