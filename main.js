@@ -48,6 +48,18 @@ if (host_url === "www.youtube.com") {
                 }
             } else {
                 //console.log("ないよ〜〜〜");
+                try {
+                //page-managerをいじったせいで崩れる
+                let ue_margin = document.getElementById('page-manager')
+                let css_ue = ue_margin.style.cssText;
+                ue_margin.style.cssText = css_ue.replace('margin: 0px;')
+                //masthead-containerをいじったせいで崩れる
+                let container = document.getElementById('masthead-container');
+                let css_container = container.style.cssText;
+                container.style.cssText = css_container.replace('position: static !important');
+                } catch (e) {
+                    
+                }
             }
         }, 1000
     )
