@@ -71,7 +71,6 @@ if (host_url === "www.youtube.com") {
                 var elm = document.getElementById("mouseover-overlay");
                 elm.remove();
             } catch (e) {
-                ;
             }
         }, 100
     )
