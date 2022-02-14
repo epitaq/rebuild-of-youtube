@@ -6,7 +6,12 @@ if (host_url === "www.youtube.com") {
             let q = location.search;
             let pathname_url = location.pathname;
             if (pathname_url.match("/watch")) {
-                //console.log('watch')
+                // サイズの調整はリアルタイム
+                let winsize = (window.innerHeight-56) + "px";
+                let primary = document.getElementById("primary-inner");
+                let second = document.getElementById("secondary-inner");
+                primary.style.height = winsize;
+                second.style.height = winsize;
                 if (watch_id == q) {
                     //console.log('if', q);
                 } else {
@@ -16,17 +21,17 @@ if (host_url === "www.youtube.com") {
                     //動画を追従させる
                     try {
                         // コメント、横の動画を分離
-                        let winsize = (window.innerHeight-56) + "px";
+                        // let winsize = (window.innerHeight-56) + "px";
                         let primary = document.getElementById("primary-inner");
                         let player = document.getElementById("player");
                         let second = document.getElementById("secondary-inner");
-                        primary.style.height = winsize;
+                        // primary.style.height = winsize;
                         primary.style.overflowY = "auto";
                         player.style.position = "sticky";
                         player.style.top = "0";
                         player.style.zIndex = "1000";
                         player.style.background = '#000000'
-                        second.style.height = winsize;
+                        // second.style.height = winsize;
                         second.style.overflowY = "auto";
                         //!important付けないとうまくいかない コメント読み込みの邪魔だから消した
                         //let bod = document.getElementsByTagName("body");
@@ -49,11 +54,11 @@ if (host_url === "www.youtube.com") {
             } else {
                 //console.log("ないよ〜〜〜");
                 try {
-                //page-managerをいじったせいで崩れる
+                //page-managerをいじったせいで崩れる 直す
                 let ue_margin = document.getElementById('page-manager')
                 let css_ue = ue_margin.style.cssText;
                 ue_margin.style.cssText = css_ue.replace('margin: 0px;')
-                //masthead-containerをいじったせいで崩れる
+                //masthead-containerをいじったせいで崩れる 直す
                 let container = document.getElementById('masthead-container');
                 let css_container = container.style.cssText;
                 container.style.cssText = css_container.replace('position: static !important');
