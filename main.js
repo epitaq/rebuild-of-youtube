@@ -47,6 +47,7 @@ if (host_url === "www.youtube.com") {
                         //上の謎のマージンを削除
                         let ue_margin = document.getElementById('page-manager')
                         ue_margin.style.margin = 0;
+                        // スクロールの禁止
                         document.querySelector("body").style.overflowY = 'hidden'
                     } catch (e) {
                         console.log("e:",e.message);
@@ -63,6 +64,8 @@ if (host_url === "www.youtube.com") {
                 let container = document.getElementById('masthead-container');
                 let css_container = container.style.cssText;
                 container.style.cssText = css_container.replace('position: static !important');
+                // スクロールの禁止
+                document.querySelector("body").style.overflowY = 'scroll'
                 } catch (e) {
 
                 }
