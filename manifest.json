@@ -1,6 +1,6 @@
 {
     "name": "YouTube改良計画（仮）",
-    "version": "1.0.8",
+    "version": "1.1.2",
     "manifest_version": 3,
     "description": "YouTubeを使いやすいように改良する拡張機能(マウスオーバーの停止,コメントと動画の分離)",
     "content_scripts": [
