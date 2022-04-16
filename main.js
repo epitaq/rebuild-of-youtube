@@ -1,23 +1,31 @@
 let host_url = location.host
 let nowWatchId = '' // 処理を一回だけ実行する用、videoIDを保存
+let path = ''
 if (host_url === "www.youtube.com") {
     // playerを改良
-    setInterval(() => {
+    function main (){
         // playerの判定
         if (location.pathname == '/watch'){
             let watch = location.search // videoIDを取得
             if (nowWatchId != watch){
                 console.log(watch)
                 nowWatchId = watch // 実行済み
+                // setTimeout(player,100)
                 player() // playerを変更
+                path = location.pathname // restore
             }
         } else {
-            restore() // player以外では変更を元に戻す
+            if (location.pathname != path){
+                console.log(path)
+                restore() // player以外では変更を元に戻す
+                path = location.pathname
+            }
         }
-    }, 500);
-    //マウスオーバーを停止
-    // マウスカーソルを合わせると再生される機能
-    setInterval(() => {
+        setTimeout(main, 500);
+    }
+    main()
+    // マウスオーバーで再生を禁止
+    function mouseOver(){
         try{
             let lst = document.querySelectorAll('#mouseover-overlay')
             if (lst.length){
@@ -28,7 +36,9 @@ if (host_url === "www.youtube.com") {
         } catch (e){
             console.log("e:",e.message)
         }
-    }, 100);
+        setTimeout(mouseOver, 100);
+    }
+    mouseOver()
 }
 
 
@@ -46,21 +56,23 @@ window.addEventListener('resize', ()=>{
 })
 
 // playerの変更
-function player () {
+function player() {
     console.log('player')
     try {
+        // スクロールの禁止
+        document.querySelector("body").style.overflowY = 'hidden'
         // コメント、横の動画を分離
-        // let winsize = (window.innerHeight-56) + "px"
+        let winSize = (window.innerHeight-56) + "px"
         let primary = document.getElementById("primary-inner")
         let player = document.getElementById("player")
         let second = document.getElementById("secondary-inner")
-        // primary.style.height = winsize
+        primary.style.height = winSize
         primary.style.overflowY = 'scroll'
         player.style.position = "sticky"
         player.style.top = "0"
         player.style.zIndex = "1000"
         player.style.background = '#000000'
-        // second.style.height = winsize
+        second.style.height = winSize
         second.style.overflowY = "scroll"
         // 上を動かせるようにする
         let container = document.getElementById('masthead-container')
@@ -72,14 +84,13 @@ function player () {
         //上の謎のマージンを削除
         let ueMargin = document.getElementById('page-manager')
         ueMargin.style.margin = 0
-        // スクロールの禁止
-        document.querySelector("body").style.overflowY = 'hidden'
     } catch (e) {
         console.log("e:",e.message)
     }
 }
 
 function restore(){
+    console.log('restore')
     try {
         //page-managerをいじったせいで崩れる 直す
         let ueMargin = document.getElementById('page-manager')
@@ -95,3 +106,4 @@ function restore(){
         console.log("e:",e.message);
     }
 }
+
