@@ -5,7 +5,7 @@
     "description": "YouTubeを使いやすいように改良する拡張機能(マウスオーバーの停止,コメントと動画の分離)",
     "content_scripts": [
         {
-        "matches": [ "http://www.youtube.com//*", "https://www.youtube.com/*" ],
+        "matches": [ "http://www.youtube.com/*", "https://www.youtube.com/*" ],
         "js": ["main.js"],
         "css": ["scroll.css"]
         }
