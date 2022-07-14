@@ -60,7 +60,7 @@ function player() {
     console.log('player')
     try {
         // スクロールの禁止
-        document.querySelector("body").style.overflowY = 'hidden'
+        document.querySelector("html").style.overflowY = 'hidden'
         // コメント、横の動画を分離
         let winSize = (window.innerHeight-56) + "px"
         let primary = document.getElementById("primary-inner")
@@ -100,8 +100,8 @@ function restore(){
         let container = document.getElementById('masthead-container')
         let cssContainer = container.style.cssText
         container.style.cssText = cssContainer.replace('position: static !important')
-        // スクロールの禁止
-        document.querySelector("body").style.overflowY = 'scroll'
+        // スクロールの禁止 解除
+        document.querySelector("html").style.overflowY = 'scroll'
     } catch (e) {
         console.log("e:",e.message);
     }
