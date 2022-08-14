@@ -113,6 +113,7 @@ function restore(){
 
 // 全画面化対策
 document.addEventListener('keypress', fullDisplay)
+document.querySelector("#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-right-controls > button.ytp-fullscreen-button.ytp-button").addEventListener('click', fullDisplay)
 function fullDisplay(e) {
     if(e.code == 'KeyF' || location.pathname == '/watch') {
         let check = document.querySelector("#player-theater-container").innerHTML
